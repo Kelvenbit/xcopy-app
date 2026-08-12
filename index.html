@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XCopy 是一款免费的 macOS 剪贴板管理器，帮助你快速找回文本、图片、链接和文件。">
+    <title>XCopy - 免费 Mac 剪贴板管理器</title>
+    <style>
+        :root {
+            --text: #17191d;
+            --muted: #717780;
+            --line: #e4e6ea;
+            --blue: #0b63f6;
+            --soft: #f5f6f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(1120px, calc(100% - 34px));
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 0;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+        }
+
+        .hero {
+            min-height: calc(100vh - 92px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 42px 0 52px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 118px;
+            height: 118px;
+            margin: 0 auto 24px;
+            border-radius: 26px;
+            box-shadow: 0 18px 52px rgba(24, 32, 45, 0.18);
+        }
+
+        h1 {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 580px;
+            margin: 18px auto 0;
+            color: #3f4650;
+            font-size: 17px;
+        }
+
+        .download {
+            align-self: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 156px;
+            min-width: 0;
+            min-height: 38px;
+            margin-top: 30px;
+            padding: 0 12px;
+            border-radius: 7px;
+            color: #ffffff;
+            background: var(--blue);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgba(11, 99, 246, 0.18);
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 0;
+            padding: 0;
+            list-style: none;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .meta li {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            min-height: 28px;
+            padding: 0 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #ffffff;
+        }
+
+        .meta li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #9aa3ad;
+        }
+
+        .screenshots {
+            padding: 0 0 76px;
+        }
+
+        .screenshot-stack {
+            display: grid;
+            gap: 22px;
+        }
+
+        .screenshot-stack[hidden] {
+            display: none;
+        }
+
+        .screenshot-stack img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--soft);
+            box-shadow: 0 18px 44px rgba(24, 32, 45, 0.10);
+        }
+
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 560px) {
+            header {
+                justify-content: flex-start;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 28px;
+            }
+
+            .screenshots {
+                padding-bottom: 54px;
+            }
+
+            .screenshot-stack {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <a class="brand" href="./">
+                <img src="assets/xcopy-icon.png" alt="XCopy 图标">
+                <span>XCopy</span>
+            </a>
+        </header>
+
+        <main class="hero">
+            <img class="icon" src="assets/xcopy-icon.png" alt="XCopy">
+            <h1>你的剪切板不止一条</h1>
+            <p class="lead">XCopy 记住你复制过的一切：文字、图片、链接、文件。按下快捷键，随时找回来。</p>
+            <a class="download" href="./assets/XCopy.dmg">下载</a>
+            <ul class="meta" aria-label="版本信息">
+                <li>无账号</li>
+                <li>无订阅</li>
+                <li>macOS 14.0+</li>
+            </ul>
+        </main>
+
+        <section id="screenshots" class="screenshots" aria-label="XCopy 截图">
+            <div class="screenshot-stack" data-lang-group="zh">
+                <img src="assets/appstore-img/v3/app_store_1_zh_v3.png" alt="XCopy 中文主界面截图" loading="lazy">
+                <img src="assets/appstore-img/v3/app_store_2_zh_v3.png" alt="XCopy 中文搜索筛选截图" loading="lazy">
+                <img src="assets/appstore-img/v3/app_store_3_zh_v3.png" alt="XCopy 中文设置界面截图" loading="lazy">
+            </div>
+
+            <div class="screenshot-stack" data-lang-group="en" hidden>
+                <img src="assets/appstore-img/v3/app_store_1_en_v3.png" alt="XCopy English main window screenshot" loading="lazy">
+                <img src="assets/appstore-img/v3/app_store_2_en_v3.png" alt="XCopy English search and filter screenshot" loading="lazy">
+                <img src="assets/appstore-img/v3/app_store_3_en_v3.png" alt="XCopy English settings screenshot" loading="lazy">
+            </div>
+        </section>
+
+        <footer>
+            <nav class="footer-links" aria-label="底部导航">
+                <a href="#screenshots">截图</a>
+                <a href="privacy-policy.html">隐私</a>
+                <a href="https://github.com/Kelvenbit/XCopy/releases">版本</a>
+                <a href="https://github.com/Kelvenbit/XCopy/issues">问题反馈</a>
+            </nav>
+            <div>© 2026 XCopy</div>
+        </footer>
+    </div>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var requestedLanguage = params.get("lang");
+            var browserLanguage = navigator.language || "";
+            var pageLanguage = document.documentElement.lang || "";
+            var language = requestedLanguage || pageLanguage || browserLanguage;
+            var activeGroup = String(language).toLowerCase().indexOf("en") === 0 ? "en" : "zh";
+
+            document.querySelectorAll("[data-lang-group]").forEach(function (group) {
+                group.hidden = group.getAttribute("data-lang-group") !== activeGroup;
+            });
+        }());
+    </script>
+</body>
+</html>
